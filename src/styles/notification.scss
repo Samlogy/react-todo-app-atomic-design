@@ -1,0 +1,124 @@
+@import './variables.scss';
+
+// set style according to type
+@mixin notif-type ($bg-clr, $clr: $clr-white) {
+  background-color: $bg-clr;
+  color: $clr;
+}
+
+// positionning on screen (t-b-r-l-tl-tr-bl-br)
+@mixin positionning($pos: 't-l') {
+  @if $pos == 't' { // Top
+    top: 5%;
+    left: 50%;
+
+  } @else if $pos == 'b' { // Bottom
+    bottom: 5%;
+    left: 50%;
+
+  } @else if $pos == 'l' { // Left
+    left: 5%;
+    top: 50%;
+
+  } @else if $pos == 'r' { // Right
+     right: 5%;
+     top: 50%
+  }
+
+  @else if $pos == 't-l' { // top-left
+    top: 5%;
+    left: 5%;
+
+  } @else if $pos == 't-r' { // top-right
+    top: 5%;
+    right: 5%;
+    
+  } @else if $pos == 'b-l' { // bottom-left
+    bottom: 5%;
+    left: 5%;
+    
+  } @else if $pos == 'b-r' { // bottom-right
+    bottom: 5%;
+    right: 5%;
+
+  }
+}
+
+// animation appear / disappear notif
+
+
+.notification-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    width: auto;
+    position: fixed;
+    z-index: 100;
+    border: 0.1rem solid lightgray;
+    @include positionning('t');
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      padding: 0.25rem;
+    }
+
+    p {
+      font-size: 1rem;
+      padding: 0.25rem;
+    }
+    svg.icon-type {
+      font-size: 1.2rem;
+    }
+
+    .header-container {
+      padding: 0.5rem;
+      position: relative;
+
+      svg.close-icon {
+        position: absolute;
+        right: 5%;
+        font-size: 1.2rem;
+        color: $clr-white;
+        cursor: pointer;
+      }
+    }
+
+    .body-container {
+      padding: 0.75rem 0.5rem;
+    }
+    
+    &-success {
+      @include notif-type($clr-success);
+
+      svg.icon-type {
+        color: $clr-success
+      }
+    }
+    &-error {
+      @include notif-type($clr-error);
+
+      svg.icon-type {
+        color: $clr-error
+      }
+    }
+    &-warning {
+      @include notif-type($clr-warning);
+
+      svg.icon-type {
+        color: $clr-warning
+      }
+    }
+    &-info {
+      @include notif-type($clr-info);
+      
+      svg.icon-type {
+        color: $clr-info
+      }
+    }
+
+}
+
+.notification-container-hide {
+  display: none;
+}

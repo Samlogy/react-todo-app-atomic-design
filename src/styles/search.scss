@@ -1,0 +1,15 @@
+@import './_variables.scss';
+
+.todo__list .todo__search {
+    width: 500px;
+    margin: 1rem auto;
+}
+  
+.todo__list .todo__search span {
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+.todo__searach__suggestion {
+    text-align: center;
+}

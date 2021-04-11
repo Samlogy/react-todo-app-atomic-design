@@ -1,0 +1,31 @@
+@import './_variables.scss';
+
+/* list */
+.todo__list .todo-list__labels, .todo__list .todo-list__data {
+    display: flex;
+    justify-content: space-evenly;
+    padding: .75rem;
+    text-align: left;
+    margin: .75rem auto;
+    width: 60vw;
+    color: #333;
+    border-radius: .5rem;
+    transition: all .25s;
+}
+.todo__list .todo-list__labels span {
+  border: .1rem solid lightgray;
+  padding: .75rem;
+  margin: .2rem;
+  border-radius: .5rem;
+  text-align: center;
+  background-color: #eaeaea;
+}
+.todo__list .todo-list__labels:hover:not(.todo-list__labels:first-child), .todo__list .todo-list__data:hover {
+    color: #545454;
+    box-shadow: 3px 3px 13px rgba(0, 0, 0, .2);
+}
+.todo__list .todo-list__data li, .todo-list__labels span { flex: 1 1 10rem }
+.todo__list .todo-list__group-btn { display: flex; align-items: center }
+.todo__list .todo-list__group-btn .icon { padding: .4rem; border-radius: 50%; transition: all .25s; cursor: pointer;}
+.todo__list .todo-list__group-btn .icon:hover { background-color: lightgray }
+.todo__list .todo-list__group-btn svg { font-size: 1.3rem; color: #333 }
